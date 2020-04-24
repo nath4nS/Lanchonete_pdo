@@ -10,15 +10,31 @@ require 'classes/UsuarioDAO.php';
 $usuarioDAO = new UsuarioDAO();
 $usuarios = $usuarioDAO->listar();
 
-?>
-<?php 
-	if(isset($_GET['msg']) && $_GET['msg'] != '') {
-	 echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
-	}
+
+if(isset($_GET['msg']) && $_GET['msg'] != '') {
+	echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
+}
+
+if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
+	$usuarios = $usuarioDAO->listar($_GET['pesquisa']);
+} else {
+	$usuarios = $usuarioDAO->listar();
+}
 ?>
 <div class="row" style="margin-top:40px">
-	<div class="col-10">
-		<h2>Gerenciar usuarios</h2>
+	<div class="col-6">
+		<h2>Gerenciar usuários</h2>
+	</div>
+	<div class="col-4">
+		<form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" name="pesquisa" type="search" placeholder="Pesquisar" aria-label="Pesquisar" value="<?= (isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '') ?>">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+	      	<i class="fas fa-search"></i>	
+	      </button>
+	      <a href="./usuarios.php" class="btn btn-outline-warning my-2 my-sm-0">
+	      	<i class="fas fa-trash-alt"></i>
+	      </a>
+	    </form>
 	</div>
 	<div class="col-2">
 		<a href="form_usuario.php" class="btn btn-success">Nova</a>
