@@ -54,7 +54,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td>
 					<a href="form_categoria.php?id=<?= $categoria->getId() ?>" class="btn btn-warning">
 						<i class="fas fa-edit"></i>
-					</a> | 
+					</a> 
 					<a href="controle_categoria.php?acao=deletar&id=<?= $categoria->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
 						<i class="fas fa-trash-alt"></i>
 					</a>

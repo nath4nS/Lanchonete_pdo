@@ -1,11 +1,11 @@
 <?php
 require_once 'Model.php';
-class relatorioDAO extends Model
+class RelatorioDAO extends Model
 {
-	public function __construct();
-	{
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+    }
 	public function contar($table = 'clientes', $condicao = '')
 	{
 		$where = '';
@@ -15,7 +15,7 @@ class relatorioDAO extends Model
 		$sql = "SELECT count(*) as total FROM {$table} {$where};";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
-		return $stmt->fetch(PDO:FETCH_ASSOC);
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
     public function contarProdutosCategoria($table = 'produtos', $condicao = '')
     {

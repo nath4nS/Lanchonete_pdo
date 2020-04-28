@@ -2,7 +2,7 @@
 
   <div class="container">
     <a class="navbar-brand" href="administrativa.php">
-      <img src="../assets/img/logo.png" width="70" height="70">  
+      <img src="../assets/img/logo.png" width="74" height="54" alt="">  
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
@@ -57,12 +57,12 @@
       </ul>
       <span class="navbar-text">
         <a href="form_usuario.php?id=<?= $_SESSION['id_usuario'] ?>">
-              <strong >
+              <strong>
                 <?= $_SESSION['nome'] ?>
               </strong>
               <img src="/assets/img/usuarios/<?= ($_SESSION['imagem'] != '' && file_exists('assets/img/usuarios/'.$_SESSION['imagem']) ? $_SESSION['imagem'] : 'usuario.png' ) ?>" class="rounded-circle user-img-menu">
             </a>
-        <small>  <a class="btn btn-outline-secondary btn-sm" href="logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a></small>
+        <small>  <a class="btn btn-outline-warning btn-sm" href="logout.php" onclick="return confirm('Deseja realmente sair?')">Sair</a></small>
       </span>
     </div>
   </div>

@@ -61,9 +61,15 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td><?= $usuario->getNome() ?></td>
 				<td><?= $usuario->getEmail() ?></td>
 				<td>
-					<a href="form_usuario.php?id=<?= $usuario->getId() ?>">Editar</a> | 
-					<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente excluir?')">Excluir</a> | 
-					<a href="controle_usuario.php?acao=removeImagem&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente remover a imagem?')">Remover imagem</a>
+					<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning">
+						<i class="fas fa-edit"></i>
+					</a>
+					<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o usuário?')">
+						<i class="fas fa-user-minus"></i>
+					</a> 
+					<a href="controle_usuario.php?acao=removeImagem&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente remover a imagem?')" class="btn btn-danger">
+						<i class="fas fa-trash-alt"></i>
+					</a>
 				</td>
 			</tr>
 			<?php } ?>

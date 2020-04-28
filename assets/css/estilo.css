@@ -1,18 +1,50 @@
 body {
-	background: #f1f1f1;
+	background: #F8ECE0;
+}
+table thead tr {
+	background: #FAAC58;
+	text-align: center;
+}
+table tbody tr td {
+	text-align: center;
+}
+h1, h2 {
+	font-style: initial;
 }
 .row {
 	margin-bottom: 15px;
 }
-
 .user-img-menu {
 	width: 30px; 
 	margin-right: 10px;
 	margin-left: 10px;
+}
+#navbarDropdown{
+	color: #F7BE81;
+	font-size: 16px;
+	font-style: italic;
 }
 .msg-error-form {
 	color: #ff2222;
     font-weight: bold;
     font-size: 12px;
     display: none;
+}
+.total {
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	color:  orange;
+}
+.total.finalizadas {
+	color: #FACC2E;
+}
+.total.pendente {
+	color: #FACC2E;
+}
+.card-dashboard {
+	padding: 0;
+}
+#produtos_categoria, #vendas_status {
+	height: 250px;
 }
