@@ -34,7 +34,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
     </form>
 	</div>
 	<div class="col-2">
-		<a href="form_cliente.php" class="btn btn-success">Novo</a>
+		<a href="form_cliente.php" class="btn btn-success">Novo cliente</a>
 	</div>
 </div>
 <div class="row">

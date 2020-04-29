@@ -14,7 +14,11 @@ class UsuarioDAO extends Model
 
     public function insereUsuario(Usuario $usuario)
     {
-    	$values = "null, '{$usuario->getNome()}','{$usuario->getEmail()}', '{$usuario->getSenha()}', '{$usuario->getImagem()}'";
+    	$values = "null,'{$usuario->getNome()}',
+                        '{$usuario->getEmail()}', 
+                        '{$usuario->getSenha()}', 
+                        '{$usuario->getImagem()}',
+                        '{$usuario->getPerfilId()}'";
     	return $this->inserir($values);
     }
     public function alteraUsuario(Usuario $usuario)
@@ -22,12 +26,11 @@ class UsuarioDAO extends Model
     	$altera_senha = ($usuario->getSenha() != '' ? ", senha = '{$usuario->getSenha()}'" : '');
         $altera_imagem = ($usuario->getImagem() != '' ? ", imagem = '{$usuario->getImagem()}'" : '');
 
-    	$values = "
-			nome = '{$usuario->getNome()}'
-			, email = '{$usuario->getEmail()}'
-            {$altera_imagem}
-			{$altera_senha}
-    	";
+    	$values = "nome = '{$usuario->getNome()}',
+			       email = '{$usuario->getEmail()}',
+                   perfil_id = '{$usuario->getPerfilId()}
+                   {$altera_imagem}
+			       {$altera_senha}";
 
     	$this->alterar($usuario->getId(), $values);
     }
@@ -44,7 +47,7 @@ class UsuarioDAO extends Model
     	return $stmt->fetch();
     }
 
-    public function listar($pesquisa = '')
+/*    public function listar($pesquisa = '')
     {
         if($pesquisa != '') {
             $sql = "SELECT * FROM {$this->tabela} 
@@ -56,6 +59,6 @@ class UsuarioDAO extends Model
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
         $stmt->execute();
         return $stmt->fetchAll();
-    }
+    }*/
 
 }

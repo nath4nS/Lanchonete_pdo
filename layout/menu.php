@@ -18,8 +18,8 @@
             Produtos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="produtos.php">Listar</a>
-            <a class="dropdown-item" href="form_produto.php">Cadastrar</a>
+            <a class="dropdown-item" href="produtos.php">Listar produtos</a>
+            <a class="dropdown-item" href="form_produto.php">Cadastrar produtos</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -27,8 +27,8 @@
             Categorias
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="categorias.php">Listar</a>
-            <a class="dropdown-item" href="form_categoria.php">Cadastrar</a>
+            <a class="dropdown-item" href="categorias.php">Listar categorias</a>
+            <a class="dropdown-item" href="form_categoria.php">Cadastrar categorias</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -36,8 +36,8 @@
             Clientes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="clientes.php">Listar</a>
-            <a class="dropdown-item" href="form_cliente.php">Cadastrar</a>
+            <a class="dropdown-item" href="clientes.php">Listar clientes</a>
+            <a class="dropdown-item" href="form_cliente.php">Cadastrar clientes</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -45,9 +45,10 @@
             Usuários
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="usuarios.php">Listar</a>
-            <a class="dropdown-item" href="form_usuario.php">Cadastrar</a>
-          </div>
+          <a class="dropdown-item" href="usuarios.php">Listar Usuários</a>
+          <a class="dropdown-item" href="perfis.php">Listar Perfis</a>
+          <a class="dropdown-item" href="controles.php">Listar Controles</a>
+        </div>
         </li>
         <li class="nav-item align-self-end" >
           <a class="nav-link" href="#">

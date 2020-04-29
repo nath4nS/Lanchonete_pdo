@@ -64,6 +64,7 @@ if($acao == 'deletar') {
 	$usuario->setNome($_POST['nome']);
 	$usuario->setEmail($_POST['email']);
 	$usuario->setSenha($_POST['senha']);
+	$usuario->setPerfilId($_POST['perfil_id']);
 	$id_usuario = $usuarioDAO->insereUsuario($usuario);
 	$msg = 'Usuário cadastrado com sucesso';
 
@@ -75,7 +76,6 @@ if($acao == 'deletar') {
 		$usuario->setSenha($_POST['senha']);
 	}
 	$id_usuario = $_POST['id'];
-
 
 
 	if($_FILES['imagem']['name'] != '') {
@@ -126,6 +126,7 @@ if($acao == 'deletar') {
 	$usuario->setId($_POST['id']);
 	$usuario->setEmail($_POST['email']);
 	$usuario->setNome($_POST['nome']);
+	$usuario->setPerfilId($_POST['perfil_id']);
 	$usuarioDAO->alteraUsuario($usuario);
 	$msg = 'Usuário alterado com sucesso';
 	

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/all.css">
 	<style>
 		body {
-			background: #dedede;
+			background: #101907;
 		}
 		.login {
 			margin-top: 10%;
@@ -32,7 +32,7 @@
 	<div class="col-4 offset-4 ">
 		<div class="card">
 			<div class="card-header">
-				<strong >Área restrita</strong>
+				<strong>Área restrita</strong>
 			</div>
 			<div class="card-body">
 				<form action="login.php" method="post">

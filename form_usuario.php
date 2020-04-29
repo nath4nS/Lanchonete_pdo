@@ -3,6 +3,11 @@
 <?php 
 	require 'classes/Usuario.php'; 
 	require 'classes/UsuarioDAO.php';
+	require 'classes/Perfil.php'; 
+	require 'classes/PerfilDAO.php';
+	$perfilDAO = new PerfilDAO();
+	$perfis = $perfilDAO->listar();
+
 	$usuario = new Usuario();
 	if(isset($_GET['id']) && $_GET['id'] != '') {
 		$id = $_GET['id'];
@@ -55,6 +60,18 @@
 					<label for="senha">Senha</label>
 					<input type="password" name="senha" id="senha" class="form-control" 
 					<?= ($usuario->getId() == '' ? ' required' : '' ) ?>>
+				</div>
+				<div class="form-group">
+					<label for="perfil_id">Perfil</label>
+					<select class="form-control" name="perfil_id" id="perfil_id">
+						<option value="">Selecione</option>
+					<?php foreach ($perfis as $perfil): ?>
+						<option value="<?= $perfil->getId() ?>" 
+							<?= ($perfil->getId() == $usuario->getPerfilId() ? 'selected' : '') ?>
+
+							><?= $perfil->getDescricao() ?></option>
+					<?php endforeach; ?>
+					</select>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Salvar</button>
