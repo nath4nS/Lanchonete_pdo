@@ -48,6 +48,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<th>#ID</th>
 				<th>Nome</th>
 				<th>E-mail</th>
+				<th>Perfil</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -60,6 +61,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<th><?= $usuario->getId() ?></th>
 				<td><?= $usuario->getNome() ?></td>
 				<td><?= $usuario->getEmail() ?></td>
+				<td><?= $usuario->perfil?></td>
 				<td>
 					<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning">
 						<i class="fas fa-edit"></i>

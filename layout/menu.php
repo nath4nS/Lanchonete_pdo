@@ -14,31 +14,19 @@
           <a class="nav-link" href="administrativa.php">Início <span class="sr-only">(página atual)</span></a>
         </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" href="produtos.php" id="navbarDropdown">
             Produtos
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="produtos.php">Listar produtos</a>
-            <a class="dropdown-item" href="form_produto.php">Cadastrar produtos</a>
-          </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" href="categorias.php" id="navbarDropdown">
             Categorias
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="categorias.php">Listar categorias</a>
-            <a class="dropdown-item" href="form_categoria.php">Cadastrar categorias</a>
-          </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link" href="clientes.php" id="navbarDropdown">
             Clientes
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="clientes.php">Listar clientes</a>
-            <a class="dropdown-item" href="form_cliente.php">Cadastrar clientes</a>
-          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

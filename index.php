@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/all.css">
 	<style>
 		body {
-			background: #101907;
+			background: #2E2E2E;
 		}
 		.login {
 			margin-top: 10%;
@@ -16,6 +16,13 @@
 		input[readonly] {
 		     cursor: text;
 		     background-color: #fff !important;
+		}
+		.card {
+			background: #101907;
+			border-radius: 5px;
+		}
+		h3 {
+			color: orange;
 		}
 	</style>
 </head>
@@ -32,7 +39,7 @@
 	<div class="col-4 offset-4 ">
 		<div class="card">
 			<div class="card-header">
-				<strong>Área restrita</strong>
+				<h3 align="center">Área administrativa</h3>
 			</div>
 			<div class="card-body">
 				<form action="login.php" method="post">
@@ -45,10 +52,11 @@
 							<a href="#" class="btn-show-password btn btn-outline-secondary col-2" >
 								<i class="fas fa-eye"></i>
 							</a>
-							
 					</div>
+					<br>
+
 					<div class="form-group row">
-						<button type="submit" class="btn btn-primary btn-block">Logar</button>
+						<button type="submit" class="btn bg-warning btn-block">Entrar</button>
 					</div>
 				</form>
 			</div>
