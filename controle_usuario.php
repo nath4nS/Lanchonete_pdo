@@ -1,13 +1,5 @@
 <?php 
-require_once './includes/validacao.php';
-require_once './includes/funcoes.php';
-$permissoes = retornaControle('usuario');
-$permissoesImagem = retornaControle('removeImagemUsuario');
-
-if(empty($permissoes)) {
-	header("Location: adminstrativa.php?msg=Acesso negado.");
-}
-
+session_start();
 require 'classes/Usuario.php';
 require 'classes/UsuarioDAO.php';
 
@@ -34,13 +26,13 @@ $upload['erros'][4] = 'Não foi feito o upload do arquivo';
 
 
 
-if($acao == 'deletar' && $permissoes['delete']) {
+if($acao == 'deletar') {
 
 	$usuarioDAO->deletar($id);
 	$msg = 'Usuário excluído com sucesso';
 
 	header("Location: usuarios.php?msg=$msg");
-} else if($acao == 'cadastrar' && $permissoes['insert']) {
+} else if($acao == 'cadastrar') {
 
 	if($_FILES['imagem']['name'] != '') {
 
@@ -78,8 +70,7 @@ if($acao == 'deletar' && $permissoes['delete']) {
 
 	header("Location: form_usuario.php?id=$id_usuario&msg=$msg");
 
-} else if(($acao == 'editar' && $permissoes['update']) 
-			|| ($_SESSION['id_usuario'] == $_POST['id'])) {
+} else if($acao == 'editar') {
 
 	if($_POST['senha'] != ''){
 		$usuario->setSenha($_POST['senha']);
@@ -141,7 +132,7 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	
 	header("Location: form_usuario.php?id=$id_usuario&msg=$msg");
 
-} else if($acao == 'removeImagem' && !empty($permissoesImagem)) {
+} else if($acao == 'removeImagem') {
 	$usuario = $usuarioDAO->get($id);
 
 	$imagem_a_remover = $upload['pasta_usuarios'] . $usuario->getImagem();
@@ -156,9 +147,6 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	
 	header("Location: usuarios.php?msg=$msg");
 
-} else {
-	$msg = 'Não possui permissão.';
-	header("Location: usuarios.php?msg=$msg");
 }
 
 

@@ -1,12 +1,7 @@
 <?php include './layout/header.php'; ?>
 <?php include './layout/menu.php'; ?>
 <?php 
-$permissoes = retornaControle('cliente');
-$permissoesImagem = retornaControle('removeImagemCliente');
 
-if(empty($permissoes)) {
-	header("Location: adminstrativa.php?msg=Acesso negado.");
-}
 require 'classes/Cliente.php';
 require 'classes/ClienteDAO.php';
 
@@ -17,6 +12,11 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 	$clientes = $clienteDAO->listar();
 }
 
+?>
+<?php 
+	if(isset($_GET['msg']) && $_GET['msg'] != '') {
+	 echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
+	}
 ?>
 <div class="row" style="margin-top:40px">
 	<div class="col-6">
@@ -33,11 +33,9 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
       </a>
     </form>
 	</div>
-	<?php if($permissoes['insert']): ?>
 	<div class="col-2">
 		<a href="form_cliente.php" class="btn btn-success">Novo cliente</a>
 	</div>
-	<?php endif; ?>
 </div>
 <div class="row">
 	<table class="table table-hover table-bordered table-striped">
@@ -67,17 +65,12 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td><?= $cliente->getDtNascimento() ?></td>
 				<td><?= $cliente->getSexo() ?></td>
 				<td>
-					<?php if($permissoes['update'] || $permissoes['show']): ?>
-						<a href="form_cliente.php?id=<?= $cliente->getId() ?>" class="btn btn-warning">
-							<i class="fas fa-edit"></i>
-						</a>
-					<?php endif; ?>
-
-					<?php if(!empty($permissoesImagem)): ?>
-						<a href="controle_cliente.php?acao=deletar&id=<?= $cliente->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
-							<i class="fas fa-trash-alt"></i>
-						</a>
-					<?php endif; ?>
+					<a href="form_cliente.php?id=<?= $cliente->getId() ?>" class="btn btn-warning">
+						<i class="fas fa-edit"></i>
+					</a>
+					<a href="controle_cliente.php?acao=deletar&id=<?= $cliente->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+						<i class="fas fa-trash-alt"></i>
+					</a>
 				</td>
 			</tr>
 			<?php } ?>

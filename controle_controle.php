@@ -1,11 +1,4 @@
 <?php 
-require_once './includes/validacao.php';
-require_once './includes/funcoes.php';
-$permissoes = retornaControle('controle');
-
-if(empty($permissoes)) {
-	header("Location: adminstrativa.php?msg=Acesso negado.");
-}
 require 'classes/Controle.php';
 require 'classes/ControleDAO.php';
 
@@ -18,14 +11,14 @@ if(isset($_GET['id']) && $_GET['id'] != '') {
 	$id = $_GET['id'];
 }
 
-if($acao == 'deletar' && $permissoes['delete']) {
+if($acao == 'deletar') {
 
 	$controleDAO->deletar($id);
 	$msg = 'Controle excluído com sucesso';
 
 	header("Location: controles.php?msg=$msg");
 
-} else if($acao == 'cadastrar' && $permissoes['insert']) {
+} else if($acao == 'cadastrar') {
 
 
 	$controle->setNome($_POST['nome']);
@@ -36,7 +29,7 @@ if($acao == 'deletar' && $permissoes['delete']) {
 
 	header("Location: form_controle.php?id=$id_controle&msg=$msg");
 
-} else if($acao == 'editar' && $permissoes['update']) {
+} else if($acao == 'editar') {
 	$id_controle = $_POST['id'];
 	$controle->setId($_POST['id']);
 	$controle->setNome($_POST['nome']);
@@ -46,8 +39,4 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	$msg = 'Controle alterado com sucesso';
 	
 	header("Location: form_controle.php?id=$id_controle&msg=$msg");
-} else {
-	$msg = 'Não possui permissão.';
-	
-	header("Location: controles.php?msg=$msg");
 }

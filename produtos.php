@@ -1,10 +1,7 @@
 <?php include './layout/header.php'; ?>
 <?php include './layout/menu.php'; ?>
 <?php 
-$permissoes = retornaControle('produto');
-if(empty($permissoes)) {
-	header("Location: adminstrativa.php?msg=Acesso negado.");
-}
+
 require 'classes/Categoria.php';
 require 'classes/Produto.php';
 require 'classes/CategoriaDAO.php';
@@ -18,6 +15,11 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 	$produtos = $produtoDAO->listar();
 }
 
+?>
+<?php 
+	if(isset($_GET['msg']) && $_GET['msg'] != '') {
+	 echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
+	}
 ?>
 <div class="row" style="margin-top:40px">
 	<div class="col-6">
@@ -34,11 +36,9 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
       </a>
     </form>
 	</div>
-	<?php if($permissoes['insert']): ?>
 	<div class="col-2">
 		<a href="form_produto.php" class="btn btn-success">Novo produto</a>
 	</div>
-	<?php endif; ?>
 </div>
 <div class="row">
 	<table class="table table-hover table-bordered table-striped">
@@ -72,16 +72,12 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td><?= $produto->getQtd() ?></td>
 				<td data-toggle="tooltip" title="<?= ($produto->getDescricao() != '' ? $produto->getDescricao() : ''); ?>"><?= ($produto->getDescricao() != '' ? substr($produto->getDescricao(),0,15).'...' : ''); ?></td>
 				<td>
-					<?php if($permissoes['update'] || $permissoes['show']): ?>
 					<a href="form_produto.php?id=<?= $produto->getId() ?>" class="btn btn-warning">
 						<i class="fas fa-edit"></i>
 					</a>
-					<?php endif; ?>
-					<?php if($permissoes['delete']): ?>
 					<a href="controle_produto.php?acao=deletar&id=<?= $produto->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
 						<i class="fas fa-trash-alt"></i>
 					</a>
-					<?php endif; ?>
 				</td>
 			</tr>
 			<?php } ?>

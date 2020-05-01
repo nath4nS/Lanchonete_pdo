@@ -1,8 +1,3 @@
-<?php
-  $permissaoUsuarioMenu = retornaControle('usuario');
-  $permissaoPerfilMenu = retornaControle('perfil');
-  $permissaoControleMenu = retornaControle('controle');
-?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <div class="container">
@@ -33,23 +28,16 @@
             Clientes
           </a>
         </li>
-        <?php if(!empty($permissaoUsuarioMenu)): ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Usuários
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="usuarios.php">Listar Usuários</a>
-          <?php if(!empty($permissaoPerfilMenu)): ?>
-            <a class="dropdown-item" href="perfis.php">Listar Perfis</a>
-          <?php endif; ?>
-
-          <?php if(!empty($permissaoControleMenu)): ?>
-            <a class="dropdown-item" href="controles.php">Listar Controles</a>
-          <?php endif; ?>
+          <a class="dropdown-item" href="perfis.php">Listar Perfis</a>
+          <a class="dropdown-item" href="controles.php">Listar Controles</a>
         </div>
         </li>
-        <?php endif; ?>
         <li class="nav-item align-self-end" >
           <a class="nav-link" href="#">
             
@@ -69,8 +57,3 @@
   </div>
 </nav>
 <div class="container">
-  <?php 
-  if(isset($_GET['msg']) && $_GET['msg'] != '') {
-   echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
-  }
-?>

@@ -1,7 +1,6 @@
 <?php include './layout/header.php'; ?>
 <?php include './layout/menu.php'; ?>
 <?php 
-
 include 'classes/RelatorioDAO.php';
 $relatorioDAO = new RelatorioDAO();
 $total_clientes = $relatorioDAO->contar('clientes');

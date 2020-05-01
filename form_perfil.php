@@ -1,11 +1,6 @@
 <?php include './layout/header.php'; ?>
 <?php include './layout/menu.php'; ?>
 <?php 
-	$permissoes = retornaControle('perfil');
-	
-	if(empty($permissoes)) {
-		header("Location: adminstrativa.php?msg=Acesso negado.");
-	}
 	require 'classes/Perfil.php'; 
 	require 'classes/PerfilDAO.php';
 	$perfil = new Perfil();
@@ -21,11 +16,9 @@
 	<div class="offset-3">
 		<h2>Cadastrar perfil</h2>
 	</div>
-	<?php if($permissoes['insert']): ?>
 	<div class="col-2">
 		<a href="form_perfil.php" class="btn btn-success">Novo perfil</a>
 	</div>
-	<?php endif; ?>
 </div>
 
 <div class="row">
@@ -47,12 +40,10 @@
 					<option value="0" <?= ($perfil->getStatus() == 1 ? 'selected' : '') ?>>Inativo</option>
 				</select>
 			</div>
-			<?php if(($permissoes['insert'] && $perfil->getId() == '') || ($permissoes['update'] && $perfil->getId() != '')): ?>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Salvar</button>
 				<button type="reset" class="btn btn-warning">Resetar</button>
 			</div>
-			<?php endif; ?>
 		</form>
 	</div>
 <?php if($perfil->getId() != ''): 
@@ -66,11 +57,9 @@
 	$permissaoDAO = new PermissaoDAO();
 	$permissoes = $permissaoDAO->listarControles("perfil_id = {$perfil->getId()}");
 ?>
-
 	<div class="col-6">
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
-		<?php if(!empty($permissoesPermissao)): ?>
 		<div class="card">
 			<div class="card-header">
 				Cadastro de permissões
@@ -88,30 +77,30 @@
 				</div>
 
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" checked type="checkbox" id="select" value="1" name="select">
-				  <label class="form-check-label" for="select">select</label>
+				  <input class="form-check-input" checked type="checkbox" id="inlineCheckbox1" value="1" name="select">
+				  <label class="form-check-label" for="inlineCheckbox1">select</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" checked type="checkbox" id="insert" value="1" name="insert">
-				  <label class="form-check-label" for="insert">insert</label>
+				  <input class="form-check-input" checked type="checkbox" id="inlineCheckbox2" value="1" name="insert">
+				  <label class="form-check-label" for="inlineCheckbox2">insert</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" checked type="checkbox" id="update" value="1" name="update">
-				  <label class="form-check-label" for="update">update</label>
+				  <input class="form-check-input" checked type="checkbox" id="inlineCheckbox2" value="1" name="update">
+				  <label class="form-check-label" for="inlineCheckbox2">update</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" checked type="checkbox" id="delete" value="1" name="delete">
-				  <label class="form-check-label" for="delete">delete</label>
+				  <input class="form-check-input" checked type="checkbox" id="inlineCheckbox2" value="1" name="delete">
+				  <label class="form-check-label" for="inlineCheckbox2">delete</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" checked type="checkbox" id="show" value="1" name="show">
-				  <label class="form-check-label" for="show">show</label>
+				  <input class="form-check-input" checked type="checkbox" id="inlineCheckbox2" value="1" name="show">
+				  <label class="form-check-label" for="inlineCheckbox2">show</label>
 				</div>
 				<button type="submit" class="btn btn-primary w-100">Adicionar permissão</button>
 				</form>
 			</div>
 		</div>
-		<?php endif; ?>
+
 		<div class="card">
 				<div class="card-header">
 					Permissões cadastradas
@@ -125,32 +114,16 @@
 						</tr>
 						<?php foreach($permissoes as $permissao): ?>
 						<tr>
-							<td class="text-right">
-								<strong><?= $permissao->controle; ?></strong>
-							</td>
+							<td><?= $permissao->controle; ?></td>
 							<td>
-								<?= ($permissao->getSelect() == 1 ? 
-								'<span class="badge badge-primary">select</span>' 
-								: ''); ?>
-								<?= ($permissao->getInsert() == 1 ? 
-								'<span class="badge badge-success">insert</span>'
-								: '') ?>
-								<?= ($permissao->getDelete() == 1 ? 
-								'<span class="badge badge-danger">delete</span>'
-								: '') ?> 
-								<?= ($permissao->getUpdate() == 1 ? 
-								'<span class="badge badge-warning">update</span>'
-								: '') ?>
-								<?= ($permissao->getShow() == 1 ? 
-									'<span class="badge badge-info">show</span>'
-									: ''
+								<?= ($permissao->getSelect() == 1 ? '->select' : ''); ?>
+								<?= ($permissao->getInsert() == 1 ? '->insert': '') ?>
+								<?= ($permissao->getDelete() == 1 ? '->delete': '') ?> 
+								<?= ($permissao->getUpdate() == 1 ? '->update': '') ?>
+								<?= ($permissao->getShow() == 1 ? '->show': ''
 ) ?>					</td>
 							<td>
-								<?php if(!empty($permissoesPermissao)): ?>
-								<a href="controle_perfil.php?acao=deletaPermissao&id_permissao=<?= $permissao->getId(); ?>&id_perfil=<?= $perfil->getId(); ?>" class="btn btn-outline-danger" onclick="return confirm('Deseja realmente excluir?')">
-									<i class="fas fa-trash"></i>
-								</a>
-								<?php endif; ?>
+								<i class="fas fa-trash"></i>
 							</td>
 						</tr>
 						<?php endforeach; ?>
