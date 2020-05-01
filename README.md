@@ -1,2 +1,2 @@
-# Lanchonete_pdo
-Contéudo de aprendizagem PDO
+# Lanchonete
+Programacão orientada a objetos.
