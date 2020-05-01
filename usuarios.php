@@ -1,6 +1,13 @@
 <?php include './layout/header.php'; ?>
 <?php include './layout/menu.php'; ?>
-<?php 
+<?php
+$permissoes = retornaControle('usuario');
+$permissoesImagem = retornaControle('removeImagemUsuario');
+if(empty($permissoes)) {
+	header("Location: administrativa.php?msg=Acesso negado.");
+}
+
+
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
 $path = $_SERVER['DOCUMENT_ROOT'];
@@ -8,10 +15,11 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 require 'classes/Usuario.php';
 require 'classes/UsuarioDAO.php';
 $usuarioDAO = new UsuarioDAO();
-$usuarios = $usuarioDAO->listar();
+$usuarios = $usuarioDAO->listarUsuarios();
 
+?>
 
-if(isset($_GET['msg']) && $_GET['msg'] != '') {
+<!-- /*if(isset($_GET['msg']) && $_GET['msg'] != '') {
 	echo '<div class="alert alert-info">'.$_GET['msg'].'</div>';
 }
 
@@ -19,8 +27,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 	$usuarios = $usuarioDAO->listar($_GET['pesquisa']);
 } else {
 	$usuarios = $usuarioDAO->listar();
-}
-?>
+}*/ -->
 <div class="row" style="margin-top:40px">
 	<div class="col-6">
 		<h2>Gerenciar usuários</h2>
@@ -36,9 +43,11 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 	      </a>
 	    </form>
 	</div>
+	<?php if($permissoes['insert']): ?>
 	<div class="col-2">
 		<a href="form_usuario.php" class="btn btn-success">Novo usuário</a>
 	</div>
+	<?php endif; ?>
 </div>
 <div class="row">
 	<table class="table table-hover table-bordered table-striped">
@@ -61,17 +70,23 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<th><?= $usuario->getId() ?></th>
 				<td><?= $usuario->getNome() ?></td>
 				<td><?= $usuario->getEmail() ?></td>
-				<td><?= $usuario->perfil?></td>
+				<td><?= $usuario->perfil ?></td>
 				<td>
-					<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning">
-						<i class="fas fa-edit"></i>
-					</a>
-					<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o usuário?')">
-						<i class="fas fa-user-minus"></i>
-					</a> 
-					<a href="controle_usuario.php?acao=removeImagem&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente remover a imagem?')" class="btn btn-danger">
-						<i class="fas fa-trash-alt"></i>
-					</a>
+					<?php if($permissoes['update'] || $permissoes['show']): ?>
+						<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning">
+							<i class="fas fa-edit"></i>
+						</a>
+					<?php endif; ?>
+					<?php if($permissoes['delete']): ?>
+						<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir o usuário?')">
+							<i class="fas fa-user-minus"></i>
+						</a>
+					<?php endif; ?>
+					<?php if(!empty($permissoesImagem)): ?>
+						<a href="controle_usuario.php?acao=removeImagem&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente remover a imagem?')" class="btn btn-danger">
+							<i class="fas fa-trash-alt"></i>
+						</a>
+					<?php endif; ?>
 				</td>
 			</tr>
 			<?php } ?>

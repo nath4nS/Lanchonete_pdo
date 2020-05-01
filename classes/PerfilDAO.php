@@ -11,12 +11,12 @@ class PerfilDAO extends Model
     }
 
     public function inserePerfil(Perfil $perfil) {
-    	$values = "null, '{$perfil->getDescricao()}', '{$perfil->getStatus()}'";
-    	return $this->inserir($values);
+        $values = "null, '{$perfil->getDescricao()}', '{$perfil->getStatus()}'";
+        return $this->inserir($values);
     }
 
     public function alteraPerfil(Perfil $perfil) {
-    	$values = "nome = '{$perfil->getNome()}', status = '{$perfil->getStatus()}'";
-    	$this->alterar($perfil->getId(), $values);
+        $values = "nome = '{$perfil->getDescricao()}', status = '{$perfil->getStatus()}'";
+        $this->alterar($perfil->getId(), $values);
     }
 }
