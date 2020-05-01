@@ -2,9 +2,9 @@
 class Perfil 
 {
 
-	private $id;
-	private $descricao;
-	private $status;
+    private $id;
+    private $descricao;
+    private $status;
 
 
     /**

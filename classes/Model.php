@@ -20,13 +20,17 @@ class Model
     	return $this->db->lastInsertId();
     }
 
-    public function listar()
+    public function listar($condicao = '')
     {
-    	$sql = "SELECT * FROM {$this->tabela}";
-    	$stmt = $this->db->prepare($sql);
-    	$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
-    	$stmt->execute();
-    	return $stmt->fetchAll();
+        $where = '';
+        if($condicao != '') {
+            $where = " WHERE {$condicao}";
+        }
+        $sql = "SELECT * FROM {$this->tabela} {$where}";
+        $stmt = $this->db->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     public function get($id)
