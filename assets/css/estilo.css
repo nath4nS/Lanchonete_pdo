@@ -8,12 +8,27 @@ table thead tr {
 table tbody tr td {
 	text-align: center;
 }
-table tbody tr td {
-	text-align: center;
-}
 h1, h2 {
 	font-style: initial;
 }
+
+/*Área de login*/
+.login {
+	margin-top: 15%;
+}
+input[readonly] {
+	cursor: text;
+	background-color: #fff !important;
+}
+.card-index {
+	background: #191007;
+	border-radius: 5px;
+}
+h3 {
+	color: orange;
+}
+
+/*Menu*/
 #dropdown-menu {
 	background-color: #343a40;
 }
@@ -34,22 +49,24 @@ h1, h2 {
 	margin-left: 10px;
 }
 .msg-error-form {
-	color: #ff2222;
+	color: #c0392b;
     font-weight: bold;
     font-size: 12px;
     display: none;
 }
+
+/*Dashboard*/
 .total {
 	text-align: center;
 	font-size: 50px;
 	font-weight: bold;
-	color:  orange;
+	color:  #27ae60;
 }
 .total.finalizadas {
-	color: #FACC2E;
+	color:  #3498db;
 }
 .total.pendente {
-	color: #FACC2E;
+	color:  #e74c3c;
 }
 .card-dashboard {
 	padding: 0;

@@ -4,26 +4,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="assets/css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/all.css">
 	<style>
 		body {
-			background: #2E2E2E;
+			background-image: url(assets/img/wallpaper.jpg);
+			/*background: #2E2E2E;*/
 		}
-		.login {
-			margin-top: 10%;
-		}
-		input[readonly] {
-		     cursor: text;
-		     background-color: #fff !important;
-		}
-		.card {
-			background: #101907;
-			border-radius: 5px;
-		}
-		h3 {
-			color: orange;
-		}
+
 	</style>
 </head>
 <body>
@@ -37,7 +26,7 @@
 </div>
 <div class="row">
 	<div class="col-4 offset-4 ">
-		<div class="card">
+		<div class="card-index">
 			<div class="card-header">
 				<h3 align="center">Área administrativa</h3>
 			</div>
