@@ -8,8 +8,22 @@ table thead tr {
 table tbody tr td {
 	text-align: center;
 }
+table tbody tr td {
+	text-align: center;
+}
 h1, h2 {
 	font-style: initial;
+}
+#dropdown-menu {
+	background-color: #343a40;
+}
+.dropdown-item {
+	color: #F7BE81;
+}
+#navbarDropdown{
+	color: #F7BE81;
+	font-size: 16px;
+	font-style: italic;
 }
 .row {
 	margin-bottom: 15px;
@@ -18,11 +32,6 @@ h1, h2 {
 	width: 30px; 
 	margin-right: 10px;
 	margin-left: 10px;
-}
-#navbarDropdown{
-	color: #F7BE81;
-	font-size: 16px;
-	font-style: italic;
 }
 .msg-error-form {
 	color: #ff2222;

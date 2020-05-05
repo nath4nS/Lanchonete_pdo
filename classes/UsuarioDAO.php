@@ -7,32 +7,34 @@ class UsuarioDAO extends Model
  
     public function __construct()
     {
-     	parent::__construct();
-     	$this->class = 'Usuario';
-     	$this->tabela = 'usuarios';
+        parent::__construct();
+        $this->class = 'Usuario';
+        $this->tabela = 'usuarios';
     }
 
     public function insereUsuario(Usuario $usuario)
     {
-    	$values = "null,'{$usuario->getNome()}',
+        $values = "null,'{$usuario->getNome()}',
                         '{$usuario->getEmail()}', 
                         '{$usuario->getSenha()}', 
                         '{$usuario->getImagem()}',
                         '{$usuario->getPerfilId()}'";
-    	return $this->inserir($values);
+        return $this->inserir($values);
     }
     public function alteraUsuario(Usuario $usuario)
     {
-    	$altera_senha = ($usuario->getSenha() != '' ? ", senha = '{$usuario->getSenha()}'" : '');
+        $altera_senha = ($usuario->getSenha() != '' ? ", senha = '{$usuario->getSenha()}'" : '');
         $altera_imagem = ($usuario->getImagem() != '' ? ", imagem = '{$usuario->getImagem()}'" : '');
 
-    	$values = "nome = '{$usuario->getNome()}',
-			       email = '{$usuario->getEmail()}',
-                   perfil_id = '{$usuario->getPerfilId()}
-                   {$altera_imagem}
-			       {$altera_senha}";
+        $values = "
+                nome = '{$usuario->getNome()}'
+                , email = '{$usuario->getEmail()}'
+                , perfil_id = '{$usuario->getPerfilId()}'
+                {$altera_imagem}
+                {$altera_senha}
+                ";
 
-    	$this->alterar($usuario->getId(), $values);
+        $this->alterar($usuario->getId(), $values);
     }
 
     public function getLogin($email, $senha)
@@ -43,9 +45,9 @@ class UsuarioDAO extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senha);
-    	$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
-    	$stmt->execute();
-    	return $stmt->fetch();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        $stmt->execute();
+        return $stmt->fetch();
     }
     public function listarUsuarios($condicao = '')
     {
@@ -73,17 +75,4 @@ class UsuarioDAO extends Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
-/*    public function listar($pesquisa = '')
-    {
-        if($pesquisa != '') {
-            $sql = "SELECT * FROM {$this->tabela} 
-                    WHERE nome like '%{$pesquisa}%'";
-        } else {
-            $sql = "SELECT * FROM {$this->tabela}";
-        }
-        $stmt = $this->db->prepare($sql);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }*/
 }

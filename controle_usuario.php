@@ -87,6 +87,7 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	$id_usuario = $_POST['id'];
 
 
+
 	if($_FILES['imagem']['name'] != '') {
 
 		if ($_FILES['imagem']['error'] != 0) {

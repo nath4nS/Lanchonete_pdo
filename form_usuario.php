@@ -27,11 +27,11 @@
 	<div class="col-6 offset-3">
 		<h2>Cadastrar usuário</h2>
 	</div>
-		<?php if($permissoes['insert']): ?>
+	<?php if($permissoes['insert']): ?>
 	<div class="col-2">
 		<a href="form_usuario.php" class="btn btn-success">Novo usuário</a>
 	</div>
-		<?php endif; ?>
+	<?php endif; ?>
 </div>
 
 <form action="controle_usuario.php?acao=<?= ( $usuario->getId() != '' ? 'editar' : 'cadastrar' )?>" method="post" enctype="multipart/form-data">
@@ -84,7 +84,7 @@
 						|| ($permissoes['update'] && $usuario->getId() != '') 
 						 || ($_SESSION['id_usuario'] == $usuario->getId())): ?>
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary">Salvar</button>
+					<button type="submit" class="btn btn-primary w-100">Salvar</button>
 				</div>
 				<?php endif; ?>
 		</div>
