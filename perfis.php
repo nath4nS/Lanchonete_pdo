@@ -22,7 +22,7 @@ $perfis = $perfiDAO->listar();
 	<?php endif; ?>
 </div>
 <div class="row">
-	<table class="table table-hover table-bordered table-striped table-responsive-lg">
+	<table class="table table-hover table-responsive-lg">
 		<thead>
 			<tr>
 				<th>#ID</th>

@@ -35,7 +35,7 @@
 			<div class="card-body">
 				<form action="login.php" method="post">
 					<div class="form-group row">
-						<input type="email" name="email" id="email" class="form-control" required onfocus="this.removeAttribute('readonly');" readonly autofocus placeholder="E-mail">
+						<input type="email" name="email" id="email" class="form-control" required onfocus="this.removeAttribute('readonly');" readonly autofocus placeholder="Email">
 					</div>
 					<div class="form-group row">
 						<!-- <label for="senha">Senha:</label> -->
@@ -45,9 +45,10 @@
 							</a>
 					</div>
 					<br>
-
 					<div class="form-group row">
-						<button type="submit" class="btn bg-warning btn-block">Entrar</button>
+						<button type="submit" class="btn bg-warning btn-block">
+							<h6>Entrar</h6>
+						</button>
 					</div>
 				</form>
 			</div>
