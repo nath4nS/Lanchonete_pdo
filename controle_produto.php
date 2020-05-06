@@ -71,6 +71,8 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	$upload['pasta_imagens'] = 'assets/img/produtos/';
 	$pasta = $upload['pasta_imagens'] . $produto_id . '/';
 
+	print_r($acao);
+
 	if(!is_dir($pasta)) {
 		mkdir($upload['pasta_imagens'] . $produto_id . '/', 0775, true);
 	}
@@ -124,6 +126,6 @@ if($acao == 'deletar' && $permissoes['delete']) {
 	header("Location: form_produto.php?id=$produto_id&msg=$msg");
 
 } else {
-	$meg = 'Não possui permissão';
+	$msg = 'Não possui permissão';
 	header("Location: produtos.php?msg=$msg");
 }

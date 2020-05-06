@@ -28,7 +28,9 @@
 	<div class="col-4 offset-4 ">
 		<div class="card-index">
 			<div class="card-header">
-				<h3 align="center">Área administrativa</h3>
+				<img src="/assets/img/logo.png">
+				<br>
+				<h3 align="center">Administrativo</h3>
 			</div>
 			<div class="card-body">
 				<form action="login.php" method="post">

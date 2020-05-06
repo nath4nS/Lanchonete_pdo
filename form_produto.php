@@ -121,7 +121,7 @@
 					</form>
 				</div>
 			</div>
-			<?php endif; ?>
+	 			<?php endif; ?>
 			<div class="card">
 				<div class="card-header">
 					Imagens cadastradas
