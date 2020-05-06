@@ -68,13 +68,13 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td><?= $cliente->getSexo() ?></td>
 				<td>
 					<?php if($permissoes['update'] || $permissoes['show']): ?>
-						<a href="form_cliente.php?id=<?= $cliente->getId() ?>" class="btn btn-warning">
+						<a href="form_cliente.php?id=<?= $cliente->getId() ?>" class="btn btn-warning" data-toggle="tooltip" title="Editar cliente">
 							<i class="fas fa-edit"></i>
 						</a>
 					<?php endif; ?>
 
 					<?php if(!empty($permissoesImagem)): ?>
-						<a href="controle_cliente.php?acao=deletar&id=<?= $cliente->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+						<a href="controle_cliente.php?acao=deletar&id=<?= $cliente->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger" data-toggle="tooltip" title="Excluir cliente">
 							<i class="fas fa-trash-alt"></i>
 						</a>
 					<?php endif; ?>

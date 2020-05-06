@@ -21,7 +21,7 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 ?>
 <div class="row" style="margin-top:40px">
 	<div class="col-6">
-		<h2>Gerencias categorias</h2>
+		<h2>Gerenciar categorias</h2>
 	</div>
 	<div class="col-4">
 		<form class="form-inline my-2 my-lg-0">
@@ -56,13 +56,13 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td><?= $categoria->getNome() ?></td>
 				<td>
 					<?php if($permissoes['update'] || $permissoes['show']): ?>
-						<a href="form_categoria.php?id=<?= $categoria->getId() ?>" class="btn btn-warning">
+						<a href="form_categoria.php?id=<?= $categoria->getId() ?>" class="btn btn-warning" data-toggle="tooltip" title="Editar categoria">
 							<i class="fas fa-edit"></i>
 						</a> 
 					<?php endif; ?>
 
 					<?php if($permissoes['delete']): ?>
-					<a href="controle_categoria.php?acao=deletar&id=<?= $categoria->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+					<a href="controle_categoria.php?acao=deletar&id=<?= $categoria->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger" data-toggle="tooltip" title="Excluir categoria">
 						<i class="fas fa-trash-alt"></i>
 					<?php endif; ?>
 					</a>

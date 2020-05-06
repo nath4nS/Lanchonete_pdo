@@ -39,12 +39,12 @@ $perfis = $perfiDAO->listar();
 				<td><?= ($perfi->getStatus() == 1 ? 'Ativo' : 'Inativo') ?></td>
 				<td>
 					<?php if($permissoes['update'] || $permissoes['show']): ?>
-					<a href="form_perfil.php?id=<?= $perfi->getId() ?>"  class="btn btn-warning">
+					<a href="form_perfil.php?id=<?= $perfi->getId() ?>"  class="btn btn-warning" data-toggle="tooltip" title="Editar perfil">
 						<i class="fas fa-edit"></i>
 					</a>
 					<?php endif; ?>
 					<?php if($permissoes['delete']): ?>
-					<a href="controle_perfil.php?acao=deletar&id=<?= $perfi->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+					<a href="controle_perfil.php?acao=deletar&id=<?= $perfi->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger" data-toggle="tooltip" title="Excluir perfil">
 						<i class="fas fa-trash-alt"></i>
 					</a>
 					<?php endif; ?>

@@ -73,12 +73,12 @@ if(isset($_GET['pesquisa']) && $_GET['pesquisa'] != '') {
 				<td data-toggle="tooltip" title="<?= ($produto->getDescricao() != '' ? $produto->getDescricao() : ''); ?>"><?= ($produto->getDescricao() != '' ? substr($produto->getDescricao(),0,15).'...' : ''); ?></td>
 				<td>
 					<?php if($permissoes['update'] || $permissoes['show']): ?>
-					<a href="form_produto.php?id=<?= $produto->getId() ?>" class="btn btn-warning">
+					<a href="form_produto.php?id=<?= $produto->getId() ?>" class="btn btn-warning" data-toggle="tooltip" title="Editar produto">
 						<i class="fas fa-edit"></i>
 					</a>
 					<?php endif; ?>
 					<?php if($permissoes['delete']): ?>
-					<a href="controle_produto.php?acao=deletar&id=<?= $produto->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+					<a href="controle_produto.php?acao=deletar&id=<?= $produto->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger" data-toggle="tooltip" title="Remover produto">
 						<i class="fas fa-trash-alt"></i>
 					</a>
 					<?php endif; ?>

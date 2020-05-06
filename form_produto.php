@@ -111,10 +111,10 @@
 				<div class="card-body">
 					<form action="controle_produto.php?acao=cadastraImagens" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="produto_id" value="<?= $produto->getId();  ?>">
-						<div class="custom-file">
-						  <input type="file" class="custom-file-input" name="imagens[]" id="imagens" multiple>
-						  <label class="custom-file-label" for="imagens">Escolha as imagens</label>
-						</div>
+							<div class="custom-file">
+							  <input type="file" class="custom-file-input" name="imagens[]" id="imagens" multiple>
+							  <label class="custom-file-label" for="imagens">Escolha as imagens</label>
+							</div>
 						<br>
 						<br>
 						<button type="submit" class="btn btn-info w-100">Cadastrar imagens</button>
@@ -126,10 +126,28 @@
 				<div class="card-header">
 					Imagens cadastradas
 				</div>
-				<div class="card-body">
-					<?php foreach($imagens as $imagem): ?>
-						<img src="<?= $imagem->getCaminho(); ?>" class="img-thumbnail" width="150px">
-					<?php endforeach; ?>
+				<div class="card-body">				
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	  					<div class="carousel-inner">
+	  						<?php 
+	  						$n = 0;
+	  						foreach($imagens as $imagem): ?>
+	    						<div class="carousel-item <?= ($n == 0 ? 'active' : '') ?>">
+									<img src="<?= $imagem->getCaminho(); ?>" class="d-block " style="width: 500px; height: 400px;">
+								</div>
+							<?php 
+							$n++;
+							endforeach; ?>
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Anterior</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Próximo</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
