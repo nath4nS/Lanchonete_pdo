@@ -6,25 +6,42 @@ h1, h2 {
 	color: black;
 	font-style: italic;
 }
-
-/*Área de login*/
-.login {
-	margin-top: 15%;
-}
-h3, h6 {
+h3 {
 	font-style: initial;
 	color: white;
 	font-style: italic;
 	text-shadow:0px 0px 5px red;
+	font-weight: 700;
+}
+
+/*Área de login*/
+.card-index {
+	background: #1907079e;
+	border: 1px solid #6c757d96;
+	border-radius: 14px;
+	padding: 26px;
+}
+.login {
+	margin-top: 15%;
+}
+.button-login {
+    width: 100%;
+    height: 45px;
+    background: #e4761afa;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 700;
+    margin-top: 16px;
+    text-shadow:0px 0px 5px red;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
 }
 input[readonly] {
 	cursor: text;
 	background-color: #fff !important;
-}
-.card-index {
-	background: #1907079e;
-	border-radius: 14px;
-	padding: 26px;
 }
 .card-header img {
 	width: 140px;
@@ -48,15 +65,17 @@ table tbody tr td {
 
 /*Menu*/
 #dropdown-menu {
-	background-color: #343a40;
+	background-color: #343a40;	
 }
 .dropdown-item {
 	color: #F7BE81;
+	font-weight: 600;
 }
 #navbarDropdown{
 	color: #F7BE81;
 	font-size: 16px;
 	font-style: italic;
+	font-weight: 600;
 }
 .row {
 	margin-bottom: 15px;

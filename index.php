@@ -46,9 +46,7 @@
 					</div>
 					<br>
 					<div class="form-group row">
-						<button type="submit" class="btn bg-warning btn-block">
-							<h6>Entrar</h6>
-						</button>
+						<button type="submit" class="button-login">Entrar</button>
 					</div>
 				</form>
 			</div>
