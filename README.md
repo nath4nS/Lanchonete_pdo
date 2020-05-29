@@ -2,4 +2,4 @@
  Sistema Lanchonete
 </h1>
 
-Projeto desenvolido no curso técnico em informártica com Programacão orientada a objetos.
+Projeto desenvolvido no curso técnico em informática com Programação orientada a objetos.
