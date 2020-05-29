@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.css">
     <link rel="stylesheet" href="/assets/css/estilo-tema.css">
-    <link rel="icon" href="/assets/img/favicon.png" sizes="32x32" type="image/png">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Andika' rel='stylesheet'>
-    <title>Grécia Burguer</title>
+    <title>Oficina do Lanche</title>
   </head>
   <body>
     <header id="header" class="">
