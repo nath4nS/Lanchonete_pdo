@@ -45,7 +45,7 @@ $usuarios = $usuarioDAO->listarUsuarios();
 			<?php foreach($usuarios as $usuario){ ?>
 			<tr>
 				<td class="text-center">
-					<img src="/assets/img/usuarios/<?= ($usuario->getImagem() != '' && file_exists('assets/img/usuarios/'.$usuario->getImagem()) ? $usuario->getImagem() : 'usuario.png') ?>" alt="" width="50" class="rounded-circle">
+					<img src="./assets/img/usuarios/<?= ($usuario->getImagem() != '' && file_exists('assets/img/usuarios/'.$usuario->getImagem()) ? $usuario->getImagem() : 'usuario.png') ?>" alt="" width="50" class="rounded-circle">
 				</td>
 				<td><?= $usuario->getId() ?></td>
 				<td><?= $usuario->getNome() ?></td>

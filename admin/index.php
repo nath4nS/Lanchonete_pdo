@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="admin/assets/css/bootstrap.min.css" >
+	<title>Administrativo</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="admin/assets/css/all.css">
+	<link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
 	<style>
 		body {
 			background-image: url(admin/assets/img/wallpaper.jpg);
@@ -33,7 +34,7 @@
 				<h3 align="center">Administrativo</h3>
 			</div>
 			<div class="card-body">
-				<form action="login.php" method="post">
+				<form action="admin/login.php" method="post">
 					<div class="form-group row">
 						<input type="email" name="email" id="email" class="form-control" required onfocus="this.removeAttribute('readonly');" readonly autofocus placeholder="Email">
 					</div>
