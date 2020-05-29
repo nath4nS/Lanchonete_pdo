@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
-	<link rel="stylesheet" type="text/css" href="assets/css/estilo.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/all.css">
+	<link rel="stylesheet" href="admin/assets/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="admin/assets/css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="admin/assets/css/all.css">
 	<style>
 		body {
-			background-image: url(assets/img/wallpaper.jpg);
+			background-image: url(admin/assets/img/wallpaper.jpg);
 			/*background: #2E2E2E;*/
 		}
 
